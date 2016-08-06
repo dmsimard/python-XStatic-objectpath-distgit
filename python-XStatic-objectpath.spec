@@ -72,7 +72,7 @@ Stringify an array of properties into a valid path.
 
 %prep
 %setup -q -n %{pypi_name}-%{version}
-cp %{SOURCE1} .
+cp %{SOURCE1} LICENSE
 
 # patch to use webassets dir
 sed -i "s|^BASE_DIR = .*|BASE_DIR = '%{_jsdir}/objectpath'|" xstatic/pkg/objectpath/__init__.py
@@ -100,20 +100,20 @@ rm -rf %{buildroot}/%{python3_sitelib}/xstatic/pkg/objectpath/data
 
 %files -n python2-%{pypi_name}
 %doc README.txt
-%license license
+%license LICENSE
 %{python2_sitelib}/xstatic/pkg/objectpath
 %{python2_sitelib}/XStatic_objectpath-%{version}-py?.?.egg-info
 %{python2_sitelib}/XStatic_objectpath-%{version}-py?.?-nspkg.pth
 
 %files -n xstatic-objectpath-common
 %doc README.txt
-%license license
+%license LICENSE
 %{_jsdir}/objectpath
 
 %if 0%{?with_python3}
 %files -n python3-%{pypi_name}
 %doc README.txt
-%license license
+%license LICENSE
 %{python3_sitelib}/xstatic/pkg/objectpath
 %{python3_sitelib}/XStatic_objectpath-%{version}-py?.?.egg-info
 %{python3_sitelib}/XStatic_objectpath-%{version}-py?.?-nspkg.pth
